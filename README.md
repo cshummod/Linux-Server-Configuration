@@ -11,6 +11,7 @@ In this project, I deployed a Flask app to AWS lightsail ubuntu instance by foll
 
 ## Connection Details
 * Public IP: 3.133.131.148
+* Link:  http://ec2-3-133-131-148.us-east-2.compute.amazonaws.com/
 
 ## Deployment Steps
 
