@@ -26,7 +26,7 @@ In this project, I deployed a Flask app to AWS lightsail ubuntu instance by foll
 ### Step 2: SSH into the server 
 1. Download your private key from your account page.
 2. Download SSH PuTTY (Optional) or yous your terminal.
-3. Follow the link to [https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-putty-to-connect-using-ssh](setup PuTTY)
+3. Follow the link to [setup PuTTY](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-putty-to-connect-using-ssh)
 
 ### Step 3: Change default SSH port
 This an important step to change the default SSH port from 22 to 2200.
@@ -195,8 +195,7 @@ Remember to use IPXX.compute... so google login works.
 
 2.Create /etc/apache2/sites-available/MCApp.conf and add the following lines to configure the virtual host:
 
-<code>
-
+```XML
 <VirtualHost *:80>
     ServerName 3.124.1.112
   ServerAlias ec2-3-124-1-112.eu-central-1.compute.amazonaws.com
@@ -214,15 +213,15 @@ Remember to use IPXX.compute... so google login works.
     LogLevel warn
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-
-</code>
+```
 
 1. Enable virtual host `sudo a2ensite MCApp`
 2. Reload Apache `sudo service apache2 reload`
 
 ### Step 15: Setup Flask MCApp
    Create /var/www/MCApp/MCApp.wsgi file add the following lines:
-<code>
+
+```python
 activate_this = '/var/www/MCApp/MCApp/venv3/bin/activate_this.py'
 with open(activate_this) as file_:
     exec(file_.read(), dict(__file__=activate_this))
@@ -236,7 +235,7 @@ sys.path.insert(1, "/var/www/MCApp/")
 
 from MCApp import app as application
 application.secret_key = 'super_secret_key'
-</code>
+```
 
 2.Restart Apache `sudo service apache2 restart`
 3.Disable default Apache site `sudo a2dissite 000-default.conf`
