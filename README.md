@@ -169,20 +169,15 @@ Remember to use IPXX.compute... so google login works.
 6.Activate the new environment `. venv3/bin/activate`
     
 7.Install the following dependencies:
-`pip install httplib2`
-
-`pip install requests`
-
-`pip install --upgrade oauth2client`
-
-`pip install sqlalchemy`
-
-`pip install flask`
-
-`sudo apt-get install libpq-dev`
-
-`pip install psycopg2`
-
+```
+pip install httplib2
+pip install requests
+pip install --upgrade oauth2client
+pip install sqlalchemy
+pip install flask
+sudo apt-get install libpq-dev
+pip install psycopg2
+```
 8.Run python3 __init__.py you should see 
 
 `* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)`
@@ -238,9 +233,13 @@ application.secret_key = 'super_secret_key'
 ```
 
 2.Restart Apache `sudo service apache2 restart`
+
 3.Disable default Apache site `sudo a2dissite 000-default.conf`
+
 4.Run `python databasesetup.py` to setup the database
+
 5.Run `seed.py` to seed the data
+
 6.Restart Apache `sudo service apache2 restart`
 
 ## Contributors
