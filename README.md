@@ -11,7 +11,6 @@ In this project, I deployed a Flask app to AWS lightsail ubuntu instance by foll
 
 ## Connection Details
 * Public IP: 3.133.131.148
-* Link:  http://ec2-3-133-131-148.us-east-2.compute.amazonaws.com/
 
 ## Deployment Steps
 
@@ -98,11 +97,11 @@ On grader account:
 1. Create a new directory called ~/.ssh (mkdir .ssh)
 2. Run `sudo nano ~/.ssh/authorized_keys` and paste the content into this file
 3. Run `chmod 700 .ssh` and `chmod 644 .ssh/authorized_keys`
-4. Check /etc/ssh/sshd_config file if <code>PasswordAuthentication</code> is set to no
+4. Check /etc/ssh/sshd_config file if `PasswordAuthentication` is set to no
 5. Restart SSH service 
    `sudo service ssh restart`
 
-Now you can login `ssh -i ~/.ssh/grader_key -p 2200 grader@3.124.1.112`
+Now you can login `ssh -i ~/.ssh/grader_key -p 2200 grader@3.133.131.148`
 
 ### Step 8: Configure timezone to UTC
 Run `sudo dpkg-reconfigure tzdata` the choose None of the above then UTC
@@ -193,8 +192,8 @@ pip install psycopg2
 
 ```XML
 <VirtualHost *:80>
-    ServerName 3.124.1.112
-  ServerAlias ec2-3-124-1-112.eu-central-1.compute.amazonaws.com
+    ServerName 3.133.131.148
+  ServerAlias http://ec2-3-133-131-148.us-east-2.compute.amazonaws.com
     WSGIScriptAlias / /var/www/MCApp/MCApp.wsgi
     <Directory /var/www/MCApp/MCApp/>
     	Order allow,deny
@@ -248,3 +247,11 @@ Mohammed Mahdi Ibrahim
 
 ## Support
 For any related questions about the tool you can contact me at wmm@hotmail.it
+
+## Refrences
+* [How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+* [UFW Docs](https://help.ubuntu.com/community/UFW)
+* [How to setup PostgresQL](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
+* [Virtual Environments](https://modwsgi.readthedocs.io/en/develop/user-guides/virtual-environments.html)
+* [mod_wsgi (Apache)](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/)
+
